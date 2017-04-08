@@ -1,0 +1,55 @@
+                      //////////////////////////////////////////////////////
+                      //////     welcome to Knap-Sack simulation     ///////
+                      //////////////////////////////////////////////////////
+                      
+please insert a multiplier value ...
+31
+please insert a inverse multiplier value ...
+71
+please insert a modulus value whish is prime relative to your multiplier ...
+110
+please insert your binary message ..
+100100111100101110
+please insert your simple knapsack comma separated ...
+1, 2, 4, 10, 20, 40
+
+            Now , For a start we need to convert simple knapsack to a general knapsack which is hard to
+            break by using the idea of "Modular Arithmetic" theory so to achieve that ,
+            we are going to use both multiplier and modulus which are available for both end-users
+    
+
+            The Following is the general knapsack which is hard to break as the modular arithmetic
+            problem
+    
+1 X 31 mod 110 = 31
+2 X 31 mod 110 = 62
+4 X 31 mod 110 = 14
+10 X 31 mod 110 = 90
+20 X 31 mod 110 = 70
+40 X 31 mod 110 = 30
+
+General Knapsack : [31, 62, 14, 90, 70, 30]
+
+Data blocks will be used to encrypt message :
+['1', '0', '0', '1', '0', '0']
+['1', '1', '1', '1', '0', '0']
+['1', '0', '1', '1', '1', '0']
+
+### Encrypted message is :  121  197  205 ###
+
+
+            So far we've a public encrypted message , that any one can intercept , but only
+            users with the modulus and multiplier are only people who are able to decrypt the message
+    
+121 X 71 mod 110 = 11
+197 X 71 mod 110 = 17
+205 X 71 mod 110 = 35
+
+                    ### Decoded Message is :
+                     11 17 35
+
+                    By converting each element of the decoded message to its binary represntation using the simple knapsack ,
+                    starting from most significant bit,
+                    the highest value till the sum matches the element , this will lead to the original message itself
+    
+Final output is =  100100 111100 101110
